@@ -16,7 +16,7 @@
 %br
 .stripe.reverse
   .row
-    .large-7.columns
+    .large-6.medium-5.columns
       - if @event.announce_only
         %a{ name: "information" }
         %h4{ "data-magellan-destination" => "information"} Information
@@ -25,19 +25,18 @@
         %h4{ "data-magellan-destination" => "schedule"}
           = t('events.schedule')
       = dot_markdown(@event.schedule)
-    .large-5.columns
+    .large-6.medium-7.columns
       %h4= t('events.location')
       .row
-        .medium-8.columns
+        .medium-7.columns
           %p
             = @host_address.to_html
-        .medium-4.columns
+        .medium-5.columns
           = image_tag(@event.venue.avatar, class: 'sponsor-logo-image', alt: @event.venue.name)
       .row
         .large-12.columns
           %iframe{ width: '100%', height: '250', frameborder: '0', scrolling: 'no', marginheight: '0', marginwidth: '0', src: %{https://maps.google.com/maps?f=q&source=s_q&hl=en&amp;geocode=&q=#{@host_address.for_map}&ie=UTF8&t=m&z=15&output=embed} }
-          =link_to "View larger map", %{https://maps.google.com/maps?f=q&source=s_q&hl=en&amp;geocode=&q=#{@host_address.for_map}&ie=UTF8&hq=&t=m&z=15}, style: "color:#0000FF;text-align:left"
-        .medium-6.columns
+          =link_to "View larger map", %{https://maps.google.com/maps?f=q&source=s_q&hl=en&amp;geocode=&q=#{@host_address.for_map}&ie=UTF8&hq=&t=m&z=15}
 
 - if @event.show_faq?
   .stripe.reverse
@@ -57,8 +56,8 @@
   .row
     .large-12.columns
       %a{ name: "sponsors" }
-      %h2{ "data-magellan-destination" => "sponsors"}
-        .text-center= t('events.sponsors')
+      %h2.text-center{ "data-magellan-destination" => "sponsors"}
+        = t('events.sponsors')
       %p.text-center
         %i= t('events.thx_to_sponsors')
       %br
@@ -67,12 +66,9 @@
           - @event.sponsors.each do |sponsor|
             %li
               .row
-                .large-2.columns
-                  = image_tag(sponsor.avatar, class: 'sponsor', alt: sponsor.name)
-                .large-10.columns
-                  =link_to sponsor.name, sponsor.website
-                  %p
-                    = sponsor.description
+                .large-2.medium-3.columns
+                  = link_to image_tag(sponsor.avatar, class: 'sponsor', alt: sponsor.name), sponsor.website, class: "sponsor-link"
+
 - if @event.verified_coaches.any?
   .stripe.reverse
     .row
