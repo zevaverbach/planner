@@ -31,7 +31,7 @@ RSpec.feature 'Managing meetings', type: :feature do
     scenario 'renders an error when no chapter has been selected' do
       visit new_admin_meeting_path
 
-      click_on 'Update'
+      click_on 'Save'
 
       expect(page).to have_content('Venue can\'t be blank')
     end
