@@ -1,15 +1,15 @@
 .icon-bar.five-up
   = link_to invite_admin_meeting_path(@meeting), class: 'item', title: 'Invite' do
-    %i.fa.fa-send-o
+    %i.fas.fa-paper-plane
     %label Invite
   = link_to edit_admin_meeting_path(@meeting), class: 'item' do
-    %i.fa.fa-pencil
+    %i.fas.fa-pencil-alt
     %label Edit
   = link_to attendees_emails_admin_meeting_path(@meeting, format: 'text'), class: 'item' do
-    %i.fa.fa-at
+    %i.fas.fa-at
     %label Emails
   = link_to admin_meeting_path(@meeting, format: 'csv'), class: 'item', title: 'CSV for labels' do
-    %i.fa.fa-users
+    %i.fas.fa-users
     %label Labels
 
 %section

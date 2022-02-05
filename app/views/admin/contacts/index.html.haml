@@ -17,13 +17,13 @@
           - @contacts.each do |contact|
             %tr
               %td
-                =link_to contact.sponsor.name, admin_sponsor_path(contact.sponsor)
+                = link_to contact.sponsor.name, admin_sponsor_path(contact.sponsor)
               %td
                 #{contact.name} #{contact.surname}
               %td
                 = contact.email
               %td.text-center
                 - if contact.mailing_list_consent
-                  %i.fa.fa-check.success
+                  %i.fas.fa-check.text-success
                 - else
-                  %i.fa.fa-times
+                  %i.fas.fa-times
